@@ -3,13 +3,16 @@ import './App.css';
 import Transaction from './TransactionComponent';
 import TransactionList from './TransactionsListComponent';
 import Account from './Account';
+import { useState } from 'react';
 
 function App() {
+  const [blockTag, setBlockTag] = useState('latest')
+  const [block, setBlock] = useState({ transactions: [] })
 
   return (
     <div>
       <h1>Ultralight block explorer</h1>
-      <Block />
+      <Block blockTag={blockTag} setBlockTag={setBlockTag} block={block} setBlock={setBlock} />
       <Transaction />
       <TransactionList />
       <Account />
