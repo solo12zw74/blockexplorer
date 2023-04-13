@@ -1,41 +1,20 @@
-import { Alchemy, Network } from 'alchemy-sdk';
-import { useEffect, useState } from 'react';
-
+import Block from './BlockComponent'
 import './App.css';
-
-// Refer to the README doc for more information about using API
-// keys in client-side code. You should never do this in production
-// level code.
-const settings = {
-  apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
-  network: Network.ETH_MAINNET,
-};
-
-
-// In this week's lessons we used ethers.js. Here we are using the
-// Alchemy SDK is an umbrella library with several different packages.
-//
-// You can read more about the packages here:
-//   https://docs.alchemy.com/reference/alchemy-sdk-api-surface-overview#api-surface
-const alchemy = new Alchemy(settings);
+import Transaction from './TransactionComponent';
+import TransactionList from './TransactionsListComponent';
+import Account from './Account';
 
 function App() {
 
-  const [block, setBlock] = useState({ transactions: [] });
-  useEffect(() => {
-    async function getBlock() {
-      setBlock(await alchemy.core.getBlock('latest'))
-    }
-
-    getBlock();
-  }, []);
-
-  return <div className="App">
-    <p>Block number: {block.number}</p>
-    <p>Block hash: {block.hash}</p>
-    <p>Block transactions count: {block.transactions.length}</p>
-    <p>Block time: {block.timestamp}</p>
-  </div>;
+  return (
+    <div>
+      <h1>Ultralight block explorer</h1>
+      <Block />
+      <Transaction />
+      <TransactionList />
+      <Account />
+    </div>
+  );
 }
 
 export default App;
