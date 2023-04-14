@@ -1,15 +1,17 @@
 import alchemy from './AlchemySDK'
 import { useEffect } from 'react';
 
-export default function Block({ blockTag, setBlockTag, block, setBlock }) {
+export default function Block({ blockTag, setBlockTag, block, setBlock, setTransactions }) {
 
     useEffect(() => {
         async function getBlock() {
-            setBlock(await alchemy.core.getBlock(blockTag))
+            const block = await alchemy.core.getBlockWithTransactions(blockTag)
+            setBlock(block)
+            setTransactions(block.transactions)
         }
 
         getBlock();
-    }, [blockTag, setBlock]);
+    }, [blockTag, setBlock, setTransactions]);
 
     return (
         <>
