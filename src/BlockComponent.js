@@ -14,13 +14,14 @@ export default function Block({ blockTag, setBlockTag, block, setBlock }) {
     return (
         <>
             <h2>Block component</h2>
-            <div>
-                <p>Block number: {block.number}</p>
-                <p>Block parent: <button onClick={() => setBlockTag(block.parentHash)}>{block.parentHash}</button></p>
-                <p>Block hash: {block.hash}</p>
-                <p>Block transactions count: {block.transactions.length}</p>
-                <p>Block time: {block.timestamp}</p>
-            </div>
+            <table>
+                <tr><td>Block number: </td><td>{block?.number}</td></tr>
+                <tr><td>Block parent:</td><td><button onClick={() => setBlockTag(block?.parentHash)}>{block?.parentHash}</button></td></tr>
+                <tr><td>Block hash:</td><td>{block?.hash}</td></tr>
+                <tr><td>Block tx count:</td> <td>{block?.transactions.length}</td></tr>
+                <tr><td>Block time:</td><td> {block?.timestamp}</td></tr>
+            </table>
+
         </>
     )
 }
