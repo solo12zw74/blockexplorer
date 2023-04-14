@@ -31,9 +31,9 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
                 <button onClick={() => tryGoToNextBlock(block.number + 1)}>-&gt;</button>
             </h2>
             <table>
-                <tr><td>Block parent:</td><td><button onClick={() => setBlockTag(block?.parentHash)}>{block?.parentHash}</button></td></tr>
-                <tr><td>Block hash:</td><td>{block?.hash}</td></tr>
-                <tr><td>Block time:</td><td>{blockTime}</td></tr>
+                <tr><td>Parent:</td><td>{block?.parentHash}</td></tr>
+                <tr><td>Hash:</td><td>{block?.hash}</td></tr>
+                <tr><td>Time:</td><td>{blockTime}</td></tr>
             </table>
         </>
     )
