@@ -1,8 +1,7 @@
 import alchemy from './AlchemySDK'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Block({ blockTag, setBlockTag, block, setBlock, setTransactions }) {
-    const [nextBlockTag, setNextBlockTag] = useState(0)
     const blockTime = new Date(block?.timestamp).toString()
 
     useEffect(() => {
@@ -17,7 +16,7 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
 
     async function tryGoToNextBlock(nextBlockNumber) {
         const currentLatestBlockNumber = await alchemy.core.getBlockNumber()
-        if (nextBlockNumber <= currentLatestBlockNumber){
+        if (nextBlockNumber <= currentLatestBlockNumber) {
             setBlockTag(nextBlockNumber)
         } else {
             alert("No more block yet")
