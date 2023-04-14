@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function App() {
   const [blockTag, setBlockTag] = useState('latest')
-  const [block, setBlock] = useState({ transactions: [] })
+  const [block, setBlock] = useState(null)
 
   return (
     <div>
