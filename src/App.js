@@ -3,11 +3,13 @@ import './App.css';
 import TransactionList from './TransactionsListComponent';
 import Account from './Account';
 import { useState } from 'react';
+import Transaction from './TransactionComponent';
 
 function App() {
   const [blockTag, setBlockTag] = useState('latest')
   const [block, setBlock] = useState(null)
   const [transactions, setTransactions] = useState([])
+  const [tx, setTx] = useState(null)
 
   return (
     <div>
@@ -18,8 +20,8 @@ function App() {
         block={block}
         setBlock={setBlock}
         setTransactions={setTransactions} />
-      <TransactionList transactions={transactions} />
-      <Account />
+      <TransactionList transactions={transactions} setTx={setTx} />
+      <div><Transaction tx={tx} /></div>
     </div>
   );
 }
