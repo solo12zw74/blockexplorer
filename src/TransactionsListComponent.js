@@ -1,10 +1,10 @@
 import Transaction from './TransactionComponent'
 export default function TransactionList({ transactions }) {
-    const txs = transactions.map(tx => <Transaction tx={tx} />)
+    const txs = transactions.map(tx => <li><Transaction tx={tx} /> </li>)
     return (
         <>
-            <h2> Block transactions: </h2>
-            {txs}
+            <h2> Block transactions ({transactions.length}): </h2>
+            <ol>{txs}</ol>
         </>
     )
 }

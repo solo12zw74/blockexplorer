@@ -1,6 +1,5 @@
 import Block from './BlockComponent'
 import './App.css';
-import Transaction from './TransactionComponent';
 import TransactionList from './TransactionsListComponent';
 import Account from './Account';
 import { useState } from 'react';
