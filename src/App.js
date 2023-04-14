@@ -13,14 +13,13 @@ function App() {
   return (
     <div>
       <h1>Ultralight block explorer</h1>
-      <Block 
+      <Block
         blockTag={blockTag}
         setBlockTag={setBlockTag}
         block={block}
         setBlock={setBlock}
         setTransactions={setTransactions} />
-      <Transaction />
-      <TransactionList />
+      <TransactionList transactions={transactions} />
       <Account />
     </div>
   );

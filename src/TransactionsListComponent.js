@@ -1,3 +1,10 @@
-export default function TransactionList() {
-    return <h2> Transactions list component </h2>
+import Transaction from './TransactionComponent'
+export default function TransactionList({ transactions }) {
+    const txs = transactions.map(tx => <Transaction tx={tx} />)
+    return (
+        <>
+            <h2> Block transactions: </h2>
+            {txs}
+        </>
+    )
 }

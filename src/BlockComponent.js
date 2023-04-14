@@ -5,7 +5,7 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
 
     useEffect(() => {
         async function getBlock() {
-            const block = await alchemy.core.getBlockWithTransactions(blockTag)
+            const block = await alchemy.core.getBlock(blockTag)
             setBlock(block)
             setTransactions(block.transactions)
         }

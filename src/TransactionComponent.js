@@ -1,3 +1,3 @@
-export default function Transaction() {
-    return <h2>Transaction component</h2>
+export default function Transaction({ tx }) {
+    return <p>Hash: {tx}</p>
 }
