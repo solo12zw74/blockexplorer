@@ -11,9 +11,10 @@ function App() {
   const [transactions, setTransactions] = useState([])
   const [tx, setTx] = useState(null)
 
+  document.title = "Ultralight block explorer"
+
   return (
     <div>
-      <h1>Ultralight block explorer</h1>
       <Block
         blockTag={blockTag}
         setBlockTag={setBlockTag}
