@@ -1,5 +1,6 @@
 import alchemy from './AlchemySDK'
 import { useEffect } from 'react';
+import { Button, Icon, Header, Segment, Table, SegmentGroup } from 'semantic-ui-react';
 
 export default function Block({ blockTag, setBlockTag, block, setBlock, setTransactions }) {
     const blockTime = new Date(block?.timestamp).toString()
@@ -25,18 +26,29 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
 
     return (
         <>
-            <h2>
-                <button onClick={() => setBlockTag(block.number - 1)}>&lt;-</button>
+            <Header as='h1' block>
                 Block #{block?.number}
-                <button onClick={() => tryGoToNextBlock(block.number + 1)}>-&gt;</button>
-            </h2>
-            <table>
-                <tbody>
-                    <tr><td>Parent:</td><td>{block?.parentHash}</td></tr>
-                    <tr><td>Hash:</td><td>{block?.hash}</td></tr>
-                    <tr><td>Time:</td><td>{blockTime}</td></tr>
-                </tbody>
-            </table>
+                <Segment>
+                    <Button animated onClick={() => setBlockTag(block.number - 1)}>
+                        <Button.Content visible>Previous</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow left' />
+                        </Button.Content>
+                    </Button>
+                    <Button animated onClick={() => tryGoToNextBlock(block.number + 1)}>
+                        <Button.Content visible>Next</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
+                </Segment>
+            </Header>
+
+            <SegmentGroup attached>
+                <Segment>Parent: {block?.parentHash} </Segment>
+                <Segment>Hash: {block?.hash}</Segment>
+                <Segment>Time: {blockTime}</Segment>
+            </SegmentGroup >
         </>
     )
 }
