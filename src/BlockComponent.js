@@ -1,6 +1,6 @@
 import alchemy from './AlchemySDK'
 import { useEffect } from 'react';
-import { Button, Icon, Header, Segment, Table, SegmentGroup } from 'semantic-ui-react';
+import { Button, Icon, Header, Segment, Table, SegmentGroup, Grid, GridRow, GridColumn, Label } from 'semantic-ui-react';
 
 export default function Block({ blockTag, setBlockTag, block, setBlock, setTransactions }) {
     const blockTime = new Date(block?.timestamp).toString()
@@ -25,7 +25,7 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
     }
 
     return (
-        <>
+        <Segment>
             <Header as='h1' block>
                 Block #{block?.number}
                 <Segment>
@@ -42,13 +42,19 @@ export default function Block({ blockTag, setBlockTag, block, setBlock, setTrans
                         </Button.Content>
                     </Button>
                 </Segment>
+                <Segment>
+                    <Grid divided>
+                        <Grid.Row>
+                            <Grid.Column width={2}>Hash:</Grid.Column>
+                            <Grid.Column>{block?.hash}</Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column width={2}>Time:</Grid.Column>
+                            <Grid.Column width={8}>{blockTime} </Grid.Column>
+                        </Grid.Row>
+                    </Grid >
+                </Segment>
             </Header>
-
-            <SegmentGroup attached>
-                <Segment>Parent: {block?.parentHash} </Segment>
-                <Segment>Hash: {block?.hash}</Segment>
-                <Segment>Time: {blockTime}</Segment>
-            </SegmentGroup >
-        </>
+        </Segment>
     )
 }
