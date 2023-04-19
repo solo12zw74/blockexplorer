@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Header, Label, Segment } from 'semantic-ui-react';
 
 export default function TransactionList({ transactions, setTx }) {
     const txMoreCount = transactions.length - 10
@@ -9,10 +10,12 @@ export default function TransactionList({ transactions, setTx }) {
     }, [transactions, setTx])
 
     return (
-        <>
-            <h2> Block transactions ({transactions.length}): </h2>
+        <Segment>
+            <Label>
+                Transactions
+            </Label>
             <ol>{txs}</ol>
             <span>and {txMoreCount} more</span>
-        </>
+        </Segment>
     )
 }
