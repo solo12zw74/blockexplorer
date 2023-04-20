@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Header, Label, Segment } from 'semantic-ui-react';
+import { Label, Segment } from 'semantic-ui-react';
 
 export default function TransactionList({ transactions, setTx }) {
     const txMoreCount = transactions.length - 10

@@ -1,19 +1,38 @@
+import { Label, Table, Segment } from "semantic-ui-react";
+import { Utils } from "alchemy-sdk";
+
 export default function Transaction({ tx }) {
     if (!tx) {
-        return null;
+        return <Segment>
+            <Label>
+                Transaction
+            </Label>
+            <Label>not selected</Label>
+        </Segment>
     }
-
+    
     return (
-        <>
-            <h3>Transaction details</h3>
-            <table>
-                <tbody>
-                    <tr><td>Hash:</td><td>{tx.hash}</td></tr>
-                    <tr><td>From:</td><td>{tx.from}</td></tr>
-                    <tr><td>To:</td><td>{tx.to}</td></tr>
-                    <tr><td>Amount:</td><td>{tx.hash}</td></tr>
-                </tbody>
-            </table>
-        </>
+        <Segment>
+            <Label>
+                Transaction
+            </Label>
+            <Table celled>
+                <Table.Body>
+                    <Table.Row>
+                        <Table.Cell>Hash</Table.Cell><Table.Cell>{tx.hash}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>From</Table.Cell><Table.Cell>{tx.from}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>To</Table.Cell><Table.Cell>{tx.to}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>Amount</Table.Cell>
+                        <Table.Cell>{Utils.formatEther(tx.value)} ETH</Table.Cell>
+                    </Table.Row>
+                </Table.Body>
+            </Table>
+        </Segment>
     )
 }

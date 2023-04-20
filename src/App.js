@@ -17,7 +17,7 @@ function App() {
   return (
     <Grid columns={2} padded style={{ height: '100vh' }}>
       <Grid.Row style={{ height: '50%' }}>
-        <Grid.Column width={50}>
+        <Grid.Column width={8}>
           <Block
             blockTag={blockTag}
             setBlockTag={setBlockTag}
@@ -25,15 +25,15 @@ function App() {
             setBlock={setBlock}
             setTransactions={setTransactions} />
         </Grid.Column>
-        <Grid.Column width={50}>
+        <Grid.Column width={8}>
           <TransactionList transactions={transactions} setTx={setTx} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row style={{ height: '50%' }}>
-        <Grid.Column width={50}>
+        <Grid.Column width={8}>
           <Transaction tx={tx} />
         </Grid.Column>
-        <Grid.Column width={50}>
+        <Grid.Column width={8}>
           <Account />
         </Grid.Column>
       </Grid.Row>
