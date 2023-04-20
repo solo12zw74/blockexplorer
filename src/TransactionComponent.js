@@ -1,7 +1,13 @@
-import { Label, Table, Segment } from "semantic-ui-react";
+import { Label, Table, Segment, Icon } from "semantic-ui-react";
 import { Utils } from "alchemy-sdk";
+import { useEffect } from "react";
 
-export default function Transaction({ tx }) {
+export default function Transaction({ tx, setAcc }) {
+   
+    useEffect(() => {
+        setAcc(null)
+    }, [tx, setAcc])
+
     if (!tx) {
         return <Segment>
             <Label>
@@ -10,22 +16,23 @@ export default function Transaction({ tx }) {
             <Label>not selected</Label>
         </Segment>
     }
-    
+
+
     return (
         <Segment>
             <Label>
                 Transaction
+                <Label.Detail>{tx.hash}</Label.Detail>
             </Label>
             <Table celled>
                 <Table.Body>
                     <Table.Row>
-                        <Table.Cell>Hash</Table.Cell><Table.Cell>{tx.hash}</Table.Cell>
+                        <Table.Cell>From</Table.Cell>
+                        <Table.Cell>{tx.from} <Icon link name='eye' onClick={() => setAcc(tx.from)} /></Table.Cell>
                     </Table.Row>
                     <Table.Row>
-                        <Table.Cell>From</Table.Cell><Table.Cell>{tx.from}</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>To</Table.Cell><Table.Cell>{tx.to}</Table.Cell>
+                        <Table.Cell>To</Table.Cell>
+                        <Table.Cell>{tx.to}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell>Amount</Table.Cell>

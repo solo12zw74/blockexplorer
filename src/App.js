@@ -11,6 +11,7 @@ function App() {
   const [block, setBlock] = useState(null)
   const [transactions, setTransactions] = useState([])
   const [tx, setTx] = useState(null)
+  const [acc, setAcc] = useState(null)
 
   document.title = "Ultralight block explorer"
 
@@ -31,10 +32,10 @@ function App() {
       </Grid.Row>
       <Grid.Row style={{ height: '50%' }}>
         <Grid.Column width={8}>
-          <Transaction tx={tx} />
+          <Transaction tx={tx} setAcc={setAcc} />
         </Grid.Column>
         <Grid.Column width={8}>
-          <Account />
+          <Account acc={acc}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>
