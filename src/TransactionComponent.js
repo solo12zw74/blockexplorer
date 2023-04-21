@@ -28,11 +28,11 @@ export default function Transaction({ tx, setAcc }) {
                 <Table.Body>
                     <Table.Row>
                         <Table.Cell>From</Table.Cell>
-                        <Table.Cell>{tx.from} <Icon link name='eye' onClick={() => setAcc(tx.from)} /></Table.Cell>
+                        <Table.Cell>{tx.from} <Icon link name='id card' onClick={() => setAcc(tx.from)} /></Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell>To</Table.Cell>
-                        <Table.Cell>{tx.to}</Table.Cell>
+                        <Table.Cell>{tx.to} <Icon link name='id card' onClick={() => setAcc(tx.to)} /></Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell>Amount</Table.Cell>
